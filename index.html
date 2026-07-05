@@ -73,6 +73,58 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Featured Homepage Previews Grid (UX Psychology: Instant Visual Authority) -->
+                <div class="featured-previews-grid">
+                    <div class="preview-card-wrapper" onclick="switchDeck('showcase')">
+                        <div class="browser-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="browser-tab-title">satrlabel.co.uk</span>
+                        </div>
+                        <div class="preview-image-container">
+                            <img src="assets/satr.png" alt="Satr Label Homepage Preview" class="preview-image">
+                        </div>
+                        <div class="preview-card-info">
+                            <h4>Satr Label</h4>
+                            <span>Active Client E-Commerce</span>
+                        </div>
+                    </div>
+
+                    <div class="preview-card-wrapper" onclick="switchDeck('showcase')">
+                        <div class="browser-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="browser-tab-title">serenity-spa.web</span>
+                        </div>
+                        <div class="preview-image-container">
+                            <img src="assets/serenity.png" alt="Serenity Spa Homepage Preview" class="preview-image">
+                        </div>
+                        <div class="preview-card-info">
+                            <h4>Serenity Aesthetics</h4>
+                            <span>Spa Consultation Booking</span>
+                        </div>
+                    </div>
+
+                    <div class="preview-card-wrapper" onclick="switchDeck('showcase')">
+                        <div class="browser-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="browser-tab-title">zenith-defi.dashboard</span>
+                        </div>
+                        <div class="preview-image-container">
+                            <img src="assets/zenith.png" alt="Zenith Web3 Dashboard Preview" class="preview-image">
+                        </div>
+                        <div class="preview-card-info">
+                            <h4>Zenith Finance</h4>
+                            <span>DeFi Yield Staking Portal</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -269,6 +321,9 @@
                                 <div class="browser-address">https://satrlabel.co.uk/preview-video</div>
                             </div>
                             <div class="video-container" id="video-showcase-container">
+                                <!-- Real high-res screenshot backdrop -->
+                                <img src="assets/satr.png" alt="Satr Label Site Preview" class="video-backdrop-image" id="video-backdrop-image">
+                                
                                 <!-- Default video state (cinematic overlay) -->
                                 <div class="video-overlay" id="video-overlay" onclick="playMockVideo()">
                                     <div class="play-button-glow">
@@ -590,14 +645,16 @@ Estimated Term: ${timeline}`;
         let walkthroughInterval = null;
         function playMockVideo() {
             const overlay = document.getElementById('video-overlay');
+            const backdrop = document.getElementById('video-backdrop-image');
             const player = document.getElementById('mock-video-player');
             const fillBar = document.getElementById('walkthrough-bar-fill');
             const stageText = document.getElementById('walkthrough-stage');
             const abayaCard = document.getElementById('walk-abaya-card');
             
-            // Hide overlay
+            // Hide overlay and backdrop image
             overlay.style.opacity = '0';
             overlay.style.pointerEvents = 'none';
+            backdrop.style.opacity = '0.05'; // keep it extremely subtle in background
             
             // Show player & reset values
             player.style.display = 'block';
@@ -648,6 +705,7 @@ Estimated Term: ${timeline}`;
                         // Reset overlay for re-play
                         overlay.style.opacity = '1';
                         overlay.style.pointerEvents = 'all';
+                        backdrop.style.opacity = '1';
                         const btn = abayaCard.querySelector('.walk-abaya-button');
                         btn.textContent = "Adding to Cart...";
                         btn.style.background = "";

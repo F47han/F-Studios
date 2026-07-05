@@ -759,6 +759,104 @@ header {
 }
 
 /* --------------------------------------------------
+   HOMEPAGE PREVIEWS GRID (BROWSER SCREENSHOTS)
+   -------------------------------------------------- */
+
+.featured-previews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.preview-card-wrapper {
+    background: var(--bg-card);
+    border: 1px solid var(--platinum-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.preview-card-wrapper:hover {
+    border-color: var(--platinum-border-active);
+    transform: translateY(-5px);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.6), inset 0 0 8px var(--platinum-border);
+}
+
+.browser-tab-title {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--platinum-dim);
+    margin-left: auto;
+    font-family: monospace;
+}
+
+.preview-image-container {
+    height: 240px;
+    overflow: hidden;
+    position: relative;
+    background: #0d0d0d;
+    border-bottom: 1px solid var(--platinum-border);
+}
+
+.preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.preview-card-wrapper:hover .preview-image {
+    transform: scale(1.04);
+}
+
+.preview-card-info {
+    padding: 20px;
+    background: rgba(0,0,0,0.2);
+}
+
+.preview-card-info h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.preview-card-info span {
+    font-size: 11px;
+    color: var(--platinum-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Video Backdrop Image Spotlight adjustment */
+.video-backdrop-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    z-index: 1;
+    opacity: 0.85;
+    transition: opacity 0.5s ease-out;
+}
+
+/* Responsive adjustment */
+@media (max-width: 992px) {
+    .featured-previews-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+
+/* --------------------------------------------------
    CLIENT SPOTLIGHT & INTERACTIVE VIDEO PLAYER STYLING
    -------------------------------------------------- */
 
