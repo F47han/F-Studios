@@ -9,326 +9,441 @@
     <meta name="description" content="F Studios is an elite digital asset engineering firm. We design bespoke, high-performance web systems with zero reliance on generic templates.">
     <meta name="author" content="F Studios">
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Archivo & Space Grotesk -->
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+    <!-- Morphing Liquid Glass Ambient Backgrounds (UX Psychology: Sensory Calm) -->
+    <div class="ambient-glow bg-glow-1"></div>
+    <div class="ambient-glow bg-glow-2"></div>
+
     <!-- Header Navigation -->
     <header id="header">
         <div class="container nav-container">
-            <a href="#" class="logo">F Studios<span>.</span></a>
-            <div class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
-                <i class="fas fa-bars"></i>
-            </div>
-            <nav>
-                <ul id="nav-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#showcase">Works</a></li>
-                    <li><a href="#diagnostic">Pricing Estimate</a></li>
-                    <li><a href="#acquisition">Contact</a></li>
+            <a href="#" class="logo" onclick="switchDeck('home')">F Studios<span>.</span></a>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="#home" class="nav-link active" onclick="switchDeck('home')">Philosophy</a></li>
+                    <li><a href="#showcase" class="nav-link" onclick="switchDeck('showcase')">Works</a></li>
+                    <li><a href="#diagnostic" class="nav-link" onclick="switchDeck('diagnostic')">Estimator</a></li>
+                    <li><a href="#acquisition" class="nav-link nav-cta" onclick="switchDeck('acquisition')">Start Brief</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <span class="hero-pretitle">Elite Digital Asset Engineering</span>
-                <h1>Crafting Premium Web <span>Assets</span></h1>
-                <p>F Studios specializes in bespoke design systems, high-density layouts, and custom calculator widgets. We build clean solutions with zero templates.</p>
-                <div class="hero-btns">
-                    <a href="#acquisition" class="btn">Start Diagnostic Brief</a>
-                    <a href="#showcase" class="btn btn-outline">Explore Works</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- App-Deck Container (UX Psychology: Zero Scroll Fatigue) -->
+    <main class="deck-container">
 
-    <!-- Showcase Grid Section -->
-    <section id="showcase">
-        <div class="container">
-            <div class="section-header">
-                <h2>Showcase <span>Curation</span></h2>
-                <div class="header-line"></div>
-                <p>Explore elite projects and client assets designed, built, and launched by F Studios.</p>
-            </div>
-            
-            <div class="showcase-grid">
-                <!-- Project 1: Satr Label -->
-                <div class="showcase-card">
-                    <div class="showcase-header">
-                        <span class="showcase-client-badge">Active Client</span>
-                        <h3>Satr Label</h3>
-                    </div>
-                    <div class="showcase-body">
-                        <p>Timeless Abaya e-commerce blueprint built with elite minimalist layout architecture.</p>
-                        <div class="showcase-links">
-                            <a href="https://satrlabel.co.uk" class="showcase-link-btn" target="_blank"><i class="fas fa-external-link-alt"></i> Live Site</a>
-                            <a href="https://github.com/F47han/satrlabel" class="showcase-link-btn" target="_blank"><i class="fab fa-github"></i> Repository</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2: Serenity Aesthetics -->
-                <div class="showcase-card">
-                    <div class="showcase-header">
-                        <span class="showcase-client-badge" style="color: var(--platinum-dim);">Template Showcase</span>
-                        <h3>Serenity Aesthetics</h3>
-                    </div>
-                    <div class="showcase-body">
-                        <p>Medical spa interface optimized for high-end conversion and tranquility.</p>
-                        <div class="showcase-links">
-                            <a href="https://f47han.github.io/SerenityAesthetics/med.html" class="showcase-link-btn" target="_blank"><i class="fas fa-external-link-alt"></i> Live Site</a>
-                            <a href="https://github.com/F47han/SerenityAesthetics" class="showcase-link-btn" target="_blank"><i class="fab fa-github"></i> Repository</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3: Ignite Fitness -->
-                <div class="showcase-card">
-                    <div class="showcase-header">
-                        <span class="showcase-client-badge" style="color: var(--platinum-dim);">Template Showcase</span>
-                        <h3>Ignite Fitness</h3>
-                    </div>
-                    <div class="showcase-body">
-                        <p>Custom built-in Vitality Calculator demonstrating complex mathematical frontend engineering.</p>
-                        <div class="showcase-links">
-                            <a href="https://f47han.github.io/Ignite/pertrain.html" class="showcase-link-btn" target="_blank"><i class="fas fa-external-link-alt"></i> Live Site</a>
-                            <a href="https://github.com/F47han/Ignite" class="showcase-link-btn" target="_blank"><i class="fab fa-github"></i> Repository</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4: Aurelia Restaurant -->
-                <div class="showcase-card">
-                    <div class="showcase-header">
-                        <span class="showcase-client-badge" style="color: var(--platinum-dim);">Template Showcase</span>
-                        <h3>Aurelia Restaurant</h3>
-                    </div>
-                    <div class="showcase-body">
-                        <p>Immersive culinary showcase engineered for Michelin-tier establishments.</p>
-                        <div class="showcase-links">
-                            <a href="https://f47han.github.io/Aurelia/restaurant.html" class="showcase-link-btn" target="_blank"><i class="fas fa-external-link-alt"></i> Live Site</a>
-                            <a href="https://github.com/F47han/Aurelia" class="showcase-link-btn" target="_blank"><i class="fab fa-github"></i> Repository</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5: Futura Platform -->
-                <div class="showcase-card">
-                    <div class="showcase-header">
-                        <span class="showcase-client-badge" style="color: var(--platinum-dim);">Template Showcase</span>
-                        <h3>Futura Platform</h3>
-                    </div>
-                    <div class="showcase-body">
-                        <p>High-density SaaS workspace interface prioritizing data hierarchy.</p>
-                        <div class="showcase-links">
-                            <a href="https://f47han.github.io/Futura/saas.html" class="showcase-link-btn" target="_blank"><i class="fas fa-external-link-alt"></i> Live Site</a>
-                            <a href="https://github.com/F47han/Futura" class="showcase-link-btn" target="_blank"><i class="fab fa-github"></i> Repository</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6: Verve Hair Studio -->
-                <div class="showcase-card">
-                    <div class="showcase-header">
-                        <span class="showcase-client-badge" style="color: var(--platinum-dim);">Template Showcase</span>
-                        <h3>Verve Hair Studio</h3>
-                    </div>
-                    <div class="showcase-body">
-                        <p>Frictionless booking wizard showcasing interactive client flows.</p>
-                        <div class="showcase-links">
-                            <a href="https://f47han.github.io/Verve/barber.html" class="showcase-link-btn" target="_blank"><i class="fas fa-external-link-alt"></i> Live Site</a>
-                            <a href="https://github.com/F47han/Verve" class="showcase-link-btn" target="_blank"><i class="fab fa-github"></i> Repository</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 7: Aegis Legal -->
-                <div class="showcase-card">
-                    <div class="showcase-header">
-                        <span class="showcase-client-badge" style="color: var(--platinum-dim);">Template Showcase</span>
-                        <h3>Aegis Legal</h3>
-                    </div>
-                    <div class="showcase-body">
-                        <p>Authoritative, high-trust digital presence designed for elite litigation counsel.</p>
-                        <div class="showcase-links">
-                            <a href="https://f47han.github.io/Aegis-Legal/" class="showcase-link-btn" target="_blank"><i class="fas fa-external-link-alt"></i> Live Site</a>
-                            <a href="https://github.com/F47han/Aegis-Legal" class="showcase-link-btn" target="_blank"><i class="fab fa-github"></i> Repository</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 8: Zenith Finance -->
-                <div class="showcase-card">
-                    <div class="showcase-header">
-                        <span class="showcase-client-badge" style="color: var(--platinum-dim);">Template Showcase</span>
-                        <h3>Zenith Finance</h3>
-                    </div>
-                    <div class="showcase-body">
-                        <p>Clean, secure dashboard architecture tailored for Web3 yield staking.</p>
-                        <div class="showcase-links">
-                            <a href="https://f47han.github.io/Zenith-Finance/" class="showcase-link-btn" target="_blank"><i class="fas fa-external-link-alt"></i> Live Site</a>
-                            <a href="https://github.com/F47han/Zenith-Finance" class="showcase-link-btn" target="_blank"><i class="fab fa-github"></i> Repository</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 9: Aether Estates -->
-                <div class="showcase-card">
-                    <div class="showcase-header">
-                        <span class="showcase-client-badge" style="color: var(--platinum-dim);">Template Showcase</span>
-                        <h3>Aether Estates</h3>
-                    </div>
-                    <div class="showcase-body">
-                        <p>High-end real estate portal utilizing large-scale imagery and luxury layout dynamics.</p>
-                        <div class="showcase-links">
-                            <a href="https://f47han.github.io/Aether-Estates/" class="showcase-link-btn" target="_blank"><i class="fas fa-external-link-alt"></i> Live Site</a>
-                            <a href="https://github.com/F47han/Aether-Estates" class="showcase-link-btn" target="_blank"><i class="fab fa-github"></i> Repository</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Dynamic Pricing Estimator Section -->
-    <section id="diagnostic">
-        <div class="container">
-            <div class="section-header">
-                <h2>Dynamic Investment <span>Estimator</span></h2>
-                <div class="header-line"></div>
-                <p>Select your tier and estimated complexity scope below to receive a diagnostic brief of timelines and funding.</p>
-            </div>
-            
-            <div class="calculator-block">
-                <div class="calc-form">
-                    <div class="form-group">
-                        <label for="project-tier">Investment Tier</label>
-                        <select id="project-tier" class="form-control" onchange="calculateBrief()">
-                            <option value="tier1">Tier 01: Bespoke MVP Portfolio / Landing System</option>
-                            <option value="tier2" selected>Tier 02: Flagship Digital Asset (booking / custom calculator / e-commerce)</option>
-                            <option value="tier3">Tier 03: Retainer & Digital Evolution</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="project-complexity">Estimated Feature Complexity</label>
-                        <input type="range" id="project-complexity" min="10" max="100" value="50" step="5" class="slider-control" oninput="calculateBrief()">
-                        <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--platinum-dim);">
-                            <span id="complexity-label">50% complexity</span>
-                            <span>Scales with custom components</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="calc-results-pane">
-                    <div class="label-muted" style="font-size:11px; text-transform:uppercase; letter-spacing:1px;">Estimated Project Funding</div>
-                    <div class="calc-val-display" id="brief-funding">£1,600</div>
-                    <div class="calc-time-display" id="brief-timeline">Timeline: 3-5 Weeks</div>
+        <!-- PANEL 1: Philosophy / Home -->
+        <section id="panel-home" class="deck-panel active">
+            <div class="container">
+                <div class="hero-section">
+                    <span class="hero-badge">Next-Gen Interface Engineering</span>
+                    <h1>We build digital assets that <span>shock</span> with intention.</h1>
+                    <p class="hero-lead">F Studios rejects templates. We engineer custom design systems, fluid motion layouts, and complex interactive calculators for brands demanding absolute authority.</p>
                     
-                    <p class="calc-const-text">Minimum time and investment required varies dynamically depending on the exact engineering workload and scope of features requested. If on a rush, projects can be completed sooner—please get in contact to discuss priority slots.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" onclick="switchDeck('showcase')">
+                            Explore Curation <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+                        </button>
+                        <button class="btn btn-outline" onclick="switchDeck('diagnostic')">
+                            Run Investment Calculator
+                        </button>
+                    </div>
+
+                    <!-- Client Trust Indicators -->
+                    <div class="client-strip">
+                        <span class="strip-title">Trusted By Active Client Assets:</span>
+                        <div class="strip-logos">
+                            <a href="https://satrlabel.co.uk" target="_blank" class="strip-logo">Satr Label</a>
+                            <span class="strip-divider">/</span>
+                            <span class="strip-logo">Serenity</span>
+                            <span class="strip-divider">/</span>
+                            <span class="strip-logo">Zenith</span>
+                            <span class="strip-divider">/</span>
+                            <span class="strip-logo">Aegis Legal</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- WhatsApp Click-to-chat Section -->
-    <section id="acquisition">
-        <div class="container">
-            <div class="section-header" style="text-align: center; margin: 0 auto 60px;">
-                <h2>Acquisition <span>Brief</span></h2>
-                <div class="header-line" style="margin: 0 auto 20px;"></div>
-                <p>Register your project details below to compile your brief. Submitting will open a direct secure WhatsApp chat with our engineers.</p>
+        <!-- PANEL 2: Curated Works Showcase (Horizontal Swipe Carousel) -->
+        <section id="panel-showcase" class="deck-panel">
+            <div class="container">
+                <div class="section-header-compact">
+                    <h2>Showcase <span>Curation</span></h2>
+                    <p>Swipe or navigate through our custom templates and live client assets.</p>
+                </div>
+
+                <!-- Carousel Controls (UX Psychology: Chamberlain's Law of Ease) -->
+                <div class="carousel-nav">
+                    <button class="carousel-btn prev" onclick="moveCarousel(-1)"><i class="fas fa-chevron-left"></i></button>
+                    <span class="carousel-indicator" id="carousel-count">1 / 9</span>
+                    <button class="carousel-btn next" onclick="moveCarousel(1)"><i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <!-- Carousel Track -->
+                <div class="carousel-viewport">
+                    <div class="carousel-track" id="carousel-track">
+                        
+                        <!-- Card 1: Satr Label -->
+                        <div class="showcase-card">
+                            <div class="card-inner">
+                                <span class="client-badge badge-active">Active Client Asset</span>
+                                <h3>Satr Label</h3>
+                                <p class="card-desc">Minimalist abaya e-commerce brand engineered with custom layout architecture and timeless product flows.</p>
+                                <div class="card-meta">
+                                    <span><i class="fas fa-tags"></i> Fashion</span>
+                                    <span><i class="fas fa-shopping-cart"></i> E-Commerce</span>
+                                </div>
+                                <div class="card-actions">
+                                    <a href="https://satrlabel.co.uk" target="_blank" class="card-btn cta"><i class="fas fa-external-link-alt"></i> Deployed Site</a>
+                                    <a href="https://github.com/F47han/satrlabel" target="_blank" class="card-btn"><i class="fab fa-github"></i> Source</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Serenity Aesthetics -->
+                        <div class="showcase-card">
+                            <div class="card-inner">
+                                <span class="client-badge">Custom Template</span>
+                                <h3>Serenity Spa</h3>
+                                <p class="card-desc">Medical spa experience featuring a dynamic drag-and-swipe before/after slider and multi-step consultation booker.</p>
+                                <div class="card-meta">
+                                    <span><i class="fas fa-spa"></i> Wellness</span>
+                                    <span><i class="fas fa-calendar-check"></i> Booking</span>
+                                </div>
+                                <div class="card-actions">
+                                    <a href="https://f47han.github.io/SerenityAesthetics/med.html" target="_blank" class="card-btn cta"><i class="fas fa-external-link-alt"></i> Deployed Site</a>
+                                    <a href="https://github.com/F47han/SerenityAesthetics" target="_blank" class="card-btn"><i class="fab fa-github"></i> Source</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Ignite Fitness -->
+                        <div class="showcase-card">
+                            <div class="card-inner">
+                                <span class="client-badge">Custom Template</span>
+                                <h3>Ignite Fitness</h3>
+                                <p class="card-desc">Cyberpunk fitness coaching page equipped with an interactive BMI vital stats calculator widget.</p>
+                                <div class="card-meta">
+                                    <span><i class="fas fa-dumbbell"></i> Fitness</span>
+                                    <span><i class="fas fa-calculator"></i> BMI Engine</span>
+                                </div>
+                                <div class="card-actions">
+                                    <a href="https://f47han.github.io/Ignite/pertrain.html" target="_blank" class="card-btn cta"><i class="fas fa-external-link-alt"></i> Deployed Site</a>
+                                    <a href="https://github.com/F47han/Ignite" target="_blank" class="card-btn"><i class="fab fa-github"></i> Source</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4: Aurelia Restaurant -->
+                        <div class="showcase-card">
+                            <div class="card-inner">
+                                <span class="client-badge">Custom Template</span>
+                                <h3>Aurelia Michelin</h3>
+                                <p class="card-desc">Michelin-star culinary platform featuring interactive seasonal menu selector tabs and validated booking slots.</p>
+                                <div class="card-meta">
+                                    <span><i class="fas fa-utensils"></i> Dining</span>
+                                    <span><i class="fas fa-clock"></i> Reservation</span>
+                                </div>
+                                <div class="card-actions">
+                                    <a href="https://f47han.github.io/Aurelia/restaurant.html" target="_blank" class="card-btn cta"><i class="fas fa-external-link-alt"></i> Deployed Site</a>
+                                    <a href="https://github.com/F47han/Aurelia" target="_blank" class="card-btn"><i class="fab fa-github"></i> Source</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 5: Futura Platform -->
+                        <div class="showcase-card">
+                            <div class="card-inner">
+                                <span class="client-badge">Custom Template</span>
+                                <h3>Futura SaaS</h3>
+                                <p class="card-desc">SaaS team collaboration dashboard with interactive pricing scaling variables and custom metrics widgets.</p>
+                                <div class="card-meta">
+                                    <span><i class="fas fa-laptop-code"></i> SaaS</span>
+                                    <span><i class="fas fa-sliders-h"></i> Pricing Slider</span>
+                                </div>
+                                <div class="card-actions">
+                                    <a href="https://f47han.github.io/Futura/saas.html" target="_blank" class="card-btn cta"><i class="fas fa-external-link-alt"></i> Deployed Site</a>
+                                    <a href="https://github.com/F47han/Futura" target="_blank" class="card-btn"><i class="fab fa-github"></i> Source</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 6: Verve Hair Studio -->
+                        <div class="showcase-card">
+                            <div class="card-inner">
+                                <span class="client-badge">Custom Template</span>
+                                <h3>Verve Studio</h3>
+                                <p class="card-desc">Barbering booking flow utilizing a step-by-step interactive scheduling and stylist picker wizard.</p>
+                                <div class="card-meta">
+                                    <span><i class="fas fa-cut"></i> Styling</span>
+                                    <span><i class="fas fa-magic"></i> Step Wizard</span>
+                                </div>
+                                <div class="card-actions">
+                                    <a href="https://f47han.github.io/Verve/barber.html" target="_blank" class="card-btn cta"><i class="fas fa-external-link-alt"></i> Deployed Site</a>
+                                    <a href="https://github.com/F47han/Verve" target="_blank" class="card-btn"><i class="fab fa-github"></i> Source</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 7: Aegis Legal -->
+                        <div class="showcase-card">
+                            <div class="card-inner">
+                                <span class="client-badge">Custom Template</span>
+                                <h3>Aegis Legal</h3>
+                                <p class="card-desc">Litigation counsel profile page built with case studies filters and consultative booking flow guides.</p>
+                                <div class="card-meta">
+                                    <span><i class="fas fa-balance-scale"></i> Legal</span>
+                                    <span><i class="fas fa-filter"></i> Case Filter</span>
+                                </div>
+                                <div class="card-actions">
+                                    <a href="https://f47han.github.io/Aegis-Legal/" target="_blank" class="card-btn cta"><i class="fas fa-external-link-alt"></i> Deployed Site</a>
+                                    <a href="https://github.com/F47han/Aegis-Legal" target="_blank" class="card-btn"><i class="fab fa-github"></i> Source</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 8: Zenith Finance -->
+                        <div class="showcase-card">
+                            <div class="card-inner">
+                                <span class="client-badge">Custom Template</span>
+                                <h3>Zenith Web3</h3>
+                                <p class="card-desc">Decentralized finance portal with live staking APY multipliers, real-time chart points, and currency converters.</p>
+                                <div class="card-meta">
+                                    <span><i class="fas fa-coins"></i> Crypto</span>
+                                    <span><i class="fas fa-chart-line"></i> Yield Calculator</span>
+                                </div>
+                                <div class="card-actions">
+                                    <a href="https://f47han.github.io/Zenith-Finance/" target="_blank" class="card-btn cta"><i class="fas fa-external-link-alt"></i> Deployed Site</a>
+                                    <a href="https://github.com/F47han/Zenith-Finance" target="_blank" class="card-btn"><i class="fab fa-github"></i> Source</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 9: Aether Estates -->
+                        <div class="showcase-card">
+                            <div class="card-inner">
+                                <span class="client-badge">Custom Template</span>
+                                <h3>Aether Estates</h3>
+                                <p class="card-desc">Luxury global real-estate search portal with home price estimators, property category tabs, and tours scheduler.</p>
+                                <div class="card-meta">
+                                    <span><i class="fas fa-hotel"></i> Real Estate</span>
+                                    <span><i class="fas fa-percentage"></i> Mortgage Est.</span>
+                                </div>
+                                <div class="card-actions">
+                                    <a href="https://f47han.github.io/Aether-Estates/" target="_blank" class="card-btn cta"><i class="fas fa-external-link-alt"></i> Deployed Site</a>
+                                    <a href="https://github.com/F47han/Aether-Estates" target="_blank" class="card-btn"><i class="fab fa-github"></i> Source</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-            
-            <div class="lead-form-container">
-                <form id="acquisition-form" onsubmit="event.preventDefault(); submitLeadForm();">
-                    <div class="form-group">
-                        <label for="lead-name">Your Name</label>
-                        <input type="text" id="lead-name" class="form-control" placeholder="e.g. Sarah Moreau" required>
+        </section>
+
+        <!-- PANEL 3: Dynamic Estimator Widget -->
+        <section id="panel-diagnostic" class="deck-panel">
+            <div class="container">
+                <div class="section-header-compact">
+                    <h2>Investment <span>Estimator</span></h2>
+                    <p>Adjust variables to forecast direct development scope and funding.</p>
+                </div>
+
+                <div class="calculator-deck">
+                    <div class="calc-inputs">
+                        <div class="form-group">
+                            <label for="project-tier">Investment Tier</label>
+                            <select id="project-tier" class="form-control" onchange="calculateBrief()">
+                                <option value="tier1">Tier 01: Bespoke MVP Portfolio</option>
+                                <option value="tier2" selected>Tier 02: Flagship Digital Asset</option>
+                                <option value="tier3">Tier 03: Retainer & Evolution</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="project-complexity">Feature Complexity Scope</label>
+                            <input type="range" id="project-complexity" min="10" max="100" value="50" step="5" class="slider-control" oninput="calculateBrief()">
+                            <div class="slider-labels">
+                                <span id="complexity-label">50% complexity</span>
+                                <span>Adjust for custom modules</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="lead-type">Project Description</label>
-                        <input type="text" id="lead-type" class="form-control" placeholder="e.g. Abaya Shop Platform / Portfolio Redesign" required>
+
+                    <div class="calc-outputs">
+                        <span class="output-label">Diagnostic Outlook</span>
+                        <div class="price-value" id="brief-funding">£1,600</div>
+                        <div class="time-value" id="brief-timeline">Timeline: 3-5 Weeks</div>
+                        <p class="calc-note">Minimum time and investment required varies dynamically depending on the exact engineering workload and scope of features requested. If on a rush, projects can be completed sooner—please get in contact to discuss priority slots.</p>
                     </div>
-                    <div class="form-group">
-                        <label for="lead-tier">Calculated Tier Summary</label>
-                        <select id="lead-tier" class="form-control" required>
-                            <option value="Tier 01: Bespoke MVP">Tier 01: Bespoke MVP Portfolio</option>
-                            <option value="Tier 02: Flagship Digital Asset" selected>Tier 02: Flagship Digital Asset</option>
-                            <option value="Tier 03: Retainer & Digital Evolution">Tier 03: Retainer & Digital Evolution</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Dispatch Project Brief <i class="fab fa-whatsapp" style="margin-left: 8px; font-size:16px;"></i></button>
-                </form>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 F Studios. Engineered with absolute intention. All rights reserved.</p>
-        </div>
-    </footer>
+        <!-- PANEL 4: WhatsApp Brief Application (Client Conversion) -->
+        <section id="panel-acquisition" class="deck-panel">
+            <div class="container">
+                <div class="section-header-compact" style="text-align: center;">
+                    <h2>Acquisition <span>Brief</span></h2>
+                    <p>Dispatch details to compile a diagnostic blueprint and launch a direct chat.</p>
+                </div>
 
-    <!-- JavaScript Logic -->
+                <div class="brief-card">
+                    <form id="brief-form" onsubmit="event.preventDefault(); submitBrief();">
+                        <div class="form-group">
+                            <label for="lead-name">Your Name</label>
+                            <input type="text" id="lead-name" class="form-control" placeholder="e.g. Sarah Moreau" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lead-type">Project Focus / Brand</label>
+                            <input type="text" id="lead-type" class="form-control" placeholder="e.g. Abaya Shop Platform / Portfolio Upgrade" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lead-tier">Calculated Tier Summary</label>
+                            <select id="lead-tier" class="form-control" required>
+                                <option value="Tier 01: Bespoke MVP">Tier 01: Bespoke MVP Portfolio</option>
+                                <option value="Tier 02: Flagship Digital Asset" selected>Tier 02: Flagship Digital Asset</option>
+                                <option value="Tier 03: Retainer & Digital Evolution">Tier 03: Retainer & Digital Evolution</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Trust Scarcity Meter (UX Psychology: Urgency) -->
+                        <div class="scarcity-meter">
+                            <i class="fas fa-exclamation-circle"></i> Priority Rush slots remaining this week: <strong>1</strong>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 10px;">
+                            Dispatch Project Brief <i class="fab fa-whatsapp" style="margin-left: 10px; font-size:16px;"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Sticky Tactile Bottom Tab Bar (UX Psychology: Fitts's Law Thumb-Zone) -->
+    <div class="bottom-tab-bar">
+        <a href="#home" id="tab-home" class="tab-item active" onclick="switchDeck('home')">
+            <i class="fas fa-brain"></i>
+            <span>Philosophy</span>
+        </a>
+        <a href="#showcase" id="tab-showcase" class="tab-item" onclick="switchDeck('showcase')">
+            <i class="fas fa-cubes"></i>
+            <span>Works</span>
+        </a>
+        <a href="#diagnostic" id="tab-diagnostic" class="tab-item" onclick="switchDeck('diagnostic')">
+            <i class="fas fa-calculator"></i>
+            <span>Estimator</span>
+        </a>
+        <a href="#acquisition" id="tab-acquisition" class="tab-item" onclick="switchDeck('acquisition')">
+            <i class="fab fa-whatsapp"></i>
+            <span>Brief</span>
+        </a>
+    </div>
+
+    <!-- JavaScript Deck and Carousel Controllers -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Header Scroll Background edit
-            const header = document.getElementById('header');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 80) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
+            // Run initial brief estimates
+            calculateBrief();
+
+            // Set up swipe touch listeners for carousel on mobile
+            const track = document.getElementById('carousel-track');
+            let startX = 0;
+            let currentTranslate = 0;
+            
+            track.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            }, { passive: true });
+
+            track.addEventListener('touchend', (e) => {
+                const endX = e.changedTouches[0].clientX;
+                const diff = startX - endX;
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) {
+                        moveCarousel(1);
+                    } else {
+                        moveCarousel(-1);
+                    }
+                }
+            }, { passive: true });
+        });
+
+        // App-Deck Navigation System
+        function switchDeck(targetId) {
+            // Remove active classes from all panels
+            document.querySelectorAll('.deck-panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+            // Remove active classes from nav items
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-item').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Activate targeted elements
+            const activePanel = document.getElementById(`panel-${targetId}`);
+            if (activePanel) {
+                activePanel.classList.add('active');
+            }
+
+            // Sync Header Nav Links
+            document.querySelectorAll('.desktop-nav a').forEach(link => {
+                if (link.getAttribute('href') === `#${targetId}`) {
+                    link.classList.add('active');
                 }
             });
 
-            // Mobile Menu toggle
-            const mobileToggle = document.getElementById('mobile-toggle');
-            const navMenu = document.getElementById('nav-menu');
-            mobileToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-            });
+            // Sync Bottom Tactile Tabs
+            const activeTab = document.getElementById(`tab-${targetId}`);
+            if (activeTab) {
+                activeTab.classList.add('active');
+            }
 
-            // Close mobile menu on click
-            document.querySelectorAll('#nav-menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
-                });
-            });
+            // Smooth scroll viewport reset
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
-            // Run initial pricing calculations
-            calculateBrief();
+        // Horizontal Carousel Logic
+        let carouselIndex = 0;
+        const totalCards = 9;
 
-            // Smooth Scroll links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    if (href === '#') return;
-                    e.preventDefault();
-                    
-                    const target = document.querySelector(href);
-                    if (target) {
-                        window.scrollTo({
-                            top: target.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-        });
+        function moveCarousel(direction) {
+            const track = document.getElementById('carousel-track');
+            
+            carouselIndex += direction;
+            if (carouselIndex < 0) {
+                carouselIndex = 0;
+            } else if (carouselIndex >= totalCards) {
+                carouselIndex = totalCards - 1;
+            }
 
-        // Pricing Estimator Calculations
+            // Calculate exact scroll offset based on cards
+            const cardWidth = document.querySelector('.showcase-card').offsetWidth;
+            const gap = 30; // matches gap in CSS
+            
+            // translate track
+            track.style.transform = `translateX(-${carouselIndex * (cardWidth + gap)}px)`;
+
+            // Update UI indicators
+            document.getElementById('carousel-count').textContent = `${carouselIndex + 1} / ${totalCards}`;
+        }
+
+        // Calculator Logic
         function calculateBrief() {
             const tierSelect = document.getElementById('project-tier');
             const complexitySlider = document.getElementById('project-complexity');
@@ -360,7 +475,7 @@
             document.getElementById('brief-funding').textContent = '£' + calculatedCost.toLocaleString();
             document.getElementById('brief-timeline').textContent = `Timeline: ${timeWeeksMin}-${timeWeeksMax} Weeks`;
             
-            // Sync values with form select for lead generation
+            // Sync values with lead form
             const leadTierSelect = document.getElementById('lead-tier');
             if (tierSelect.value === 'tier1') {
                 leadTierSelect.value = 'Tier 01: Bespoke MVP';
@@ -371,8 +486,8 @@
             }
         }
 
-        // WhatsApp brief dispatch
-        function submitLeadForm() {
+        // Submit and redirect to WhatsApp
+        function submitBrief() {
             const name = document.getElementById('lead-name').value;
             const projectType = document.getElementById('lead-type').value;
             const tier = document.getElementById('lead-tier').value;
