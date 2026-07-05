@@ -231,10 +231,10 @@
                 
                 <div class="calc-results-pane">
                     <div class="label-muted" style="font-size:11px; text-transform:uppercase; letter-spacing:1px;">Estimated Project Funding</div>
-                    <div class="calc-val-display" id="brief-funding">£4,500</div>
-                    <div class="calc-time-display" id="brief-timeline">Timeline: 4-6 Weeks</div>
+                    <div class="calc-val-display" id="brief-funding">£1,600</div>
+                    <div class="calc-time-display" id="brief-timeline">Timeline: 3-5 Weeks</div>
                     
-                    <p class="calc-const-text">Minimum time and investment required varies dynamically depending on the exact engineering workload and scope of features requested.</p>
+                    <p class="calc-const-text">Minimum time and investment required varies dynamically depending on the exact engineering workload and scope of features requested. If on a rush, projects can be completed sooner—please get in contact to discuss priority slots.</p>
                 </div>
             </div>
         </div>
@@ -336,23 +336,23 @@
             
             document.getElementById('complexity-label').textContent = `${complexityVal}% complexity`;
 
-            let baseCost = 2000;
+            let baseCost = 1600;
             let multiplier = complexityVal / 50;
-            let timeWeeksMin = 2;
-            let timeWeeksMax = 4;
+            let timeWeeksMin = 3;
+            let timeWeeksMax = 5;
 
             if (tierSelect.value === 'tier1') {
-                baseCost = 1500;
-                timeWeeksMin = 2;
-                timeWeeksMax = 4;
+                baseCost = 650;
+                timeWeeksMin = 1;
+                timeWeeksMax = 2;
             } else if (tierSelect.value === 'tier2') {
-                baseCost = 4000;
-                timeWeeksMin = 5;
-                timeWeeksMax = 8;
+                baseCost = 1600;
+                timeWeeksMin = 3;
+                timeWeeksMax = 5;
             } else if (tierSelect.value === 'tier3') {
-                baseCost = 6000;
-                timeWeeksMin = 12;
-                timeWeeksMax = 24;
+                baseCost = 2800;
+                timeWeeksMin = 6;
+                timeWeeksMax = 8;
             }
 
             const calculatedCost = Math.round(baseCost * multiplier);
