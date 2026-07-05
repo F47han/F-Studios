@@ -293,7 +293,7 @@
                                             <!-- CSS Animated abaya layout preview -->
                                             <div class="walk-abaya-card" id="walk-abaya-card">
                                                 <div class="walk-abaya-glow"></div>
-                                                <span class="walk-abaya-title">The Flora Abaya</span>
+                                                <span class="walk-abaya-title">The Jamila Abaya</span>
                                                 <span class="walk-abaya-price">£280</span>
                                                 <div class="walk-abaya-button">Adding to Cart...</div>
                                             </div>
@@ -309,17 +309,17 @@
                             <p class="spotlight-intro">F Studios engineered Satr's web architecture with high-contrast, layout grids to mirror their offline craftsmanship. Select a collection below to view the color schemes and typography pairings designed for each line:</p>
                             
                             <div class="lookbook-picker">
-                                <div class="lookbook-option active" onclick="selectLookbook('flora', this)">
-                                    <h4>01. Flora Collection</h4>
-                                    <p>Spring Lace & Linen · Sage/Warm-Cream Theme</p>
-                                </div>
-                                <div class="lookbook-option" onclick="selectLookbook('layla', this)">
-                                    <h4>02. Layla Collection</h4>
-                                    <p>Deco Silk & Tassel · Golden/Noir Theme</p>
+                                <div class="lookbook-option active" onclick="selectLookbook('jamila', this)">
+                                    <h4>01. The Jamila</h4>
+                                    <p>Signature Silk Abaya · Earthy Taupe Theme</p>
                                 </div>
                                 <div class="lookbook-option" onclick="selectLookbook('zahra', this)">
-                                    <h4>03. Zahra Collection</h4>
-                                    <p>Structured Crêpe · Earth/Desert Sand Theme</p>
+                                    <h4>02. The Zahra</h4>
+                                    <p>Structured Earth Olive · Olive/Gold Theme</p>
+                                </div>
+                                <div class="lookbook-option" onclick="selectLookbook('yasmine', this)">
+                                    <h4>03. The Yasmine</h4>
+                                    <p>Editorial Soft Cream · Cream/Gold Theme</p>
                                 </div>
                             </div>
                         </div>
@@ -671,19 +671,19 @@ Estimated Term: ${timeline}`;
             const price = abayaCard.querySelector('.walk-abaya-price');
             const glow = abayaCard.querySelector('.walk-abaya-glow');
 
-            if (collection === 'flora') {
-                title.textContent = "The Flora Abaya";
+            if (collection === 'jamila') {
+                title.textContent = "The Jamila Abaya";
                 price.textContent = "£280";
                 abayaCard.style.borderColor = "rgba(168, 213, 186, 0.4)";
                 glow.style.background = "radial-gradient(circle, rgba(168,213,186,0.15) 0%, transparent 70%)";
-            } else if (collection === 'layla') {
-                title.textContent = "The Layla Abaya";
-                price.textContent = "£340";
-                abayaCard.style.borderColor = "rgba(201, 168, 76, 0.4)";
-                glow.style.background = "radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%)";
             } else if (collection === 'zahra') {
                 title.textContent = "The Zahra Abaya";
-                price.textContent = "£310";
+                price.textContent = "£320";
+                abayaCard.style.borderColor = "rgba(201, 168, 76, 0.4)";
+                glow.style.background = "radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%)";
+            } else if (collection === 'yasmine') {
+                title.textContent = "The Yasmine Abaya";
+                price.textContent = "£340";
                 abayaCard.style.borderColor = "rgba(229, 229, 229, 0.4)";
                 glow.style.background = "radial-gradient(circle, rgba(229,229,229,0.15) 0%, transparent 70%)";
             }
