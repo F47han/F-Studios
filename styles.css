@@ -496,43 +496,110 @@ footer p {
 }
 
 @media (max-width: 768px) {
-    .mobile-toggle {
-        display: block;
+    section {
+        padding: 80px 0;
     }
 
+    .section-header h2 {
+        font-size: 2.4rem;
+    }
+
+    .mobile-toggle {
+        display: block;
+        z-index: 2000;
+        transition: var(--transition);
+    }
+
+    /* Elegant z-indexed mobile overlay menu */
     nav ul {
         position: fixed;
-        top: 89px;
+        top: 0;
         right: -100%;
-        width: 70%;
-        height: calc(100vh - 89px);
+        width: 100%;
+        max-width: 320px;
+        height: 100vh;
         background: rgba(13, 13, 13, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 50px;
-        gap: 30px;
-        transition: var(--transition);
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         border-left: 1px solid var(--platinum-border);
-        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+        box-shadow: -10px 0 40px rgba(0,0,0,0.8);
+        z-index: 1500;
     }
 
     nav ul.active {
         right: 0;
     }
 
-    .hero h1 {
-        font-size: 3.2rem;
+    .hero {
+        text-align: center;
+        padding-top: 100px;
     }
 
-    .section-header h2 {
-        font-size: 2.5rem;
+    .hero h1 {
+        font-size: 3.2rem;
+        line-height: 1.2;
+    }
+
+    .hero p {
+        font-size: 16px;
+        margin: 0 auto 36px;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .hero-btns .btn {
+        width: 100%;
     }
 
     .showcase-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .showcase-card {
+        min-height: auto;
+    }
+
+    .showcase-header {
+        padding: 30px 30px 15px;
+    }
+
+    .showcase-body {
+        padding: 0 30px 30px;
     }
 
     .calculator-block, .lead-form-container {
         padding: 30px 20px;
+        gap: 30px;
+    }
+
+    .calc-results-pane {
+        padding: 30px 20px;
+        min-height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.6rem;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .logo {
+        font-size: 1.8rem;
     }
 }
