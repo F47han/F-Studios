@@ -508,30 +508,38 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Horizontal Carousel Logic
-        let carouselIndex = 0;
+        // Horizontal Carousel Scroll Logic (Supports swipe, touchpad drag, and click arrows)
         const totalCards = 9;
 
         function moveCarousel(direction) {
-            const track = document.getElementById('carousel-track');
+            const viewport = document.querySelector('.carousel-viewport');
+            const card = document.querySelector('.showcase-card');
+            if (!viewport || !card) return;
             
-            carouselIndex += direction;
-            if (carouselIndex < 0) {
-                carouselIndex = 0;
-            } else if (carouselIndex >= totalCards) {
-                carouselIndex = totalCards - 1;
-            }
-
-            // Calculate exact scroll offset based on cards
-            const cardWidth = document.querySelector('.showcase-card').offsetWidth;
+            const cardWidth = card.offsetWidth;
             const gap = 30; // matches gap in CSS
             
-            // translate track
-            track.style.transform = `translateX(-${carouselIndex * (cardWidth + gap)}px)`;
-
-            // Update UI indicators
-            document.getElementById('carousel-count').textContent = `${carouselIndex + 1} / ${totalCards}`;
+            viewport.scrollLeft += direction * (cardWidth + gap);
         }
+
+        // Keep page indicators synchronized with swipe or mouse drag
+        document.addEventListener('DOMContentLoaded', () => {
+            const viewport = document.querySelector('.carousel-viewport');
+            if (!viewport) return;
+            
+            viewport.addEventListener('scroll', () => {
+                const card = document.querySelector('.showcase-card');
+                if (!card) return;
+                
+                const cardWidth = card.offsetWidth;
+                const gap = 30;
+                
+                const index = Math.round(viewport.scrollLeft / (cardWidth + gap));
+                const activeIndex = Math.max(0, Math.min(totalCards - 1, index));
+                
+                document.getElementById('carousel-count').textContent = `${activeIndex + 1} / ${totalCards}`;
+            });
+        });
 
         // Calculator Logic
         function calculateBrief() {

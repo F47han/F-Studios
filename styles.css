@@ -367,19 +367,28 @@ header {
 }
 
 .carousel-viewport {
-    overflow: visible;
+    overflow-x: auto;
     width: 100%;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+    padding-bottom: 20px; /* spacing offset */
+    margin-bottom: -20px;
+}
+
+.carousel-viewport::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
 .carousel-track {
     display: flex;
     gap: 30px;
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform;
+    width: max-content;
 }
 
 /* Liquid Glass Cards */
 .showcase-card {
+    scroll-snap-align: start;
     min-width: calc((100% - 60px) / 3);
     width: calc((100% - 60px) / 3);
     background: var(--bg-card);
