@@ -312,48 +312,34 @@
 
                     <div class="spotlight-grid">
                         
-                        <!-- Left: Cinematic Video Player Mockup -->
+                        <!-- Left: Interactive Mini Store Mockup -->
                         <div class="spotlight-media-card">
                             <div class="browser-header">
                                 <span class="dot red"></span>
                                 <span class="dot yellow"></span>
                                 <span class="dot green"></span>
-                                <div class="browser-address">https://satrlabel.co.uk/preview-video</div>
+                                <div class="browser-address">https://satrlabel.co.uk/lookbook</div>
+                                <div class="browser-bag-status" id="browser-bag-count"><i class="fas fa-shopping-bag"></i> Bag (0)</div>
                             </div>
-                            <div class="video-container" id="video-showcase-container">
-                                <!-- Real high-res screenshot backdrop -->
-                                <img src="assets/satr.png" alt="Satr Label Site Preview" class="video-backdrop-image" id="video-backdrop-image">
-                                
-                                <!-- Default video state (cinematic overlay) -->
-                                <div class="video-overlay" id="video-overlay" onclick="playMockVideo()">
-                                    <div class="play-button-glow">
-                                        <div class="play-button-icon"><i class="fas fa-play"></i></div>
+                            <div class="store-preview-viewport">
+                                <!-- Interactive Product Card -->
+                                <div class="store-product-card" id="store-product-card">
+                                    <div class="store-img-wrapper">
+                                        <img src="assets/jamila1.jpeg" alt="The Jamila Abaya" id="store-product-image" class="store-product-image">
                                     </div>
-                                    <span class="video-overlay-title">Satr Label · Digital Fashion Experience</span>
-                                    <span class="video-overlay-subtitle">Click to play animated interactive walk-through</span>
+                                    <div class="store-product-info">
+                                        <h4 id="store-product-title">The Jamila</h4>
+                                        <p id="store-product-desc">Signature luxury silk abaya featuring timeless tailoring and flowing lines.</p>
+                                        <div class="store-price-row">
+                                            <span class="store-price" id="store-product-price">£280</span>
+                                            <button class="store-add-btn" id="store-add-btn" onclick="addToMockBag()">Add to Bag</button>
+                                        </div>
+                                    </div>
                                 </div>
-                                
-                                <!-- Embedded YouTube player / Animated Canvas -->
-                                <div class="mock-video-player" id="mock-video-player">
-                                    <!-- We use a beautiful interactive iframe of Satr's moodboard page as the preview, or a YouTube embed placeholder! -->
-                                    <iframe id="preview-iframe" src="" style="width: 100%; height: 100%; border: none; opacity: 0; transition: opacity 0.5s ease;"></iframe>
-                                    
-                                    <!-- Simulated interactive walkthrough overlay (rendered if no iframe source) -->
-                                    <div class="simulated-walkthrough" id="simulated-walkthrough">
-                                        <div class="walkthrough-bar">
-                                            <div class="walkthrough-bar-fill" id="walkthrough-bar-fill"></div>
-                                        </div>
-                                        <div class="walkthrough-stage" id="walkthrough-stage">Loading Satr Catalog...</div>
-                                        <div class="walkthrough-view" id="walkthrough-view">
-                                            <!-- CSS Animated abaya layout preview -->
-                                            <div class="walk-abaya-card" id="walk-abaya-card">
-                                                <div class="walk-abaya-glow"></div>
-                                                <span class="walk-abaya-title">The Jamila Abaya</span>
-                                                <span class="walk-abaya-price">£280</span>
-                                                <div class="walk-abaya-button">Adding to Cart...</div>
-                                            </div>
-                                        </div>
-                                    </div>
+
+                                <!-- Shopping Cart Toast Alert -->
+                                <div class="store-cart-toast" id="store-cart-toast">
+                                    <i class="fas fa-check-circle"></i> Added to Satr Bag!
                                 </div>
                             </div>
                         </div>
@@ -641,78 +627,37 @@ Estimated Term: ${timeline}`;
             window.open(waLink, '_blank');
         }
 
-        // Client Spotlight Video Playback Mockup Animation
-        let walkthroughInterval = null;
-        function playMockVideo() {
-            const overlay = document.getElementById('video-overlay');
-            const backdrop = document.getElementById('video-backdrop-image');
-            const player = document.getElementById('mock-video-player');
-            const fillBar = document.getElementById('walkthrough-bar-fill');
-            const stageText = document.getElementById('walkthrough-stage');
-            const abayaCard = document.getElementById('walk-abaya-card');
+        // Client Spotlight Store Interactive Logic
+        let mockBagCount = 0;
+        
+        function addToMockBag() {
+            mockBagCount++;
+            const bagLabel = document.getElementById('browser-bag-count');
+            const toast = document.getElementById('store-cart-toast');
+            const addBtn = document.getElementById('store-add-btn');
             
-            // Hide overlay and backdrop image
-            overlay.style.opacity = '0';
-            overlay.style.pointerEvents = 'none';
-            backdrop.style.opacity = '0.05'; // keep it extremely subtle in background
+            // Update bag count
+            bagLabel.innerHTML = `<i class="fas fa-shopping-bag"></i> Bag (${mockBagCount})`;
+            bagLabel.style.color = '#00e676';
             
-            // Show player & reset values
-            player.style.display = 'block';
-            let progress = 0;
-            fillBar.style.width = '0%';
-            abayaCard.classList.remove('added');
+            // Show checkmark on button
+            addBtn.textContent = "Added ✓";
+            addBtn.style.background = "#00e676";
+            addBtn.style.color = "#000";
             
-            const stages = [
-                { limit: 25, text: "Resolving secure connection to satrlabel.co.uk..." },
-                { limit: 55, text: "Loading abaya catalog grid frameworks..." },
-                { limit: 80, text: "Compiling Liquid Glass transitions & typography..." },
-                { limit: 100, text: "Client Walkthrough loaded successfully!" }
-            ];
+            // Trigger toast alert
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                addBtn.textContent = "Add to Bag";
+                addBtn.style.background = "";
+                addBtn.style.color = "";
+                bagLabel.style.color = "";
+            }, 1200);
 
-            if (walkthroughInterval) clearInterval(walkthroughInterval);
-            
-            walkthroughInterval = setInterval(() => {
-                progress += 2;
-                if (progress > 100) progress = 100;
-                
-                fillBar.style.width = `${progress}%`;
-                
-                // Get active stage text
-                const activeStage = stages.find(s => progress <= s.limit) || stages[stages.length - 1];
-                stageText.textContent = activeStage.text;
-                
-                // Visual actions inside mock abaya card during walkthrough
-                if (progress === 40) {
-                    abayaCard.style.transform = 'scale(1.05) translateY(-5px)';
-                    abayaCard.style.boxShadow = '0 15px 30px rgba(255,255,255,0.1)';
-                } else if (progress === 60) {
-                    abayaCard.style.transform = 'scale(1)';
-                    abayaCard.style.boxShadow = 'none';
-                } else if (progress === 85) {
-                    // Simulate button click to add to cart
-                    const btn = abayaCard.querySelector('.walk-abaya-button');
-                    btn.textContent = "Added to Bag ✓";
-                    btn.style.background = "#00e676";
-                    btn.style.color = "#000";
-                    abayaCard.classList.add('added');
-                }
-                
-                if (progress >= 100) {
-                    clearInterval(walkthroughInterval);
-                    stageText.textContent = "Launching live brand site...";
-                    setTimeout(() => {
-                        window.open("https://satrlabel.co.uk", "_blank");
-                        // Reset overlay for re-play
-                        overlay.style.opacity = '1';
-                        overlay.style.pointerEvents = 'all';
-                        backdrop.style.opacity = '1';
-                        const btn = abayaCard.querySelector('.walk-abaya-button');
-                        btn.textContent = "Adding to Cart...";
-                        btn.style.background = "";
-                        btn.style.color = "";
-                    }, 1200);
-                }
-            }, 100);
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
         }
 
         // Lookbook Selector updates preview card
@@ -723,33 +668,39 @@ Estimated Term: ${timeline}`;
             });
             element.classList.add('active');
 
-            // Update preview abaya card
-            const abayaCard = document.getElementById('walk-abaya-card');
-            const title = abayaCard.querySelector('.walk-abaya-title');
-            const price = abayaCard.querySelector('.walk-abaya-price');
-            const glow = abayaCard.querySelector('.walk-abaya-glow');
+            // Update preview abaya card details
+            const pCard = document.getElementById('store-product-card');
+            const image = document.getElementById('store-product-image');
+            const title = document.getElementById('store-product-title');
+            const desc = document.getElementById('store-product-desc');
+            const price = document.getElementById('store-product-price');
+
+            // Reset transitions
+            pCard.style.animation = 'none';
+            pCard.offsetHeight; // trigger reflow
 
             if (collection === 'jamila') {
-                title.textContent = "The Jamila Abaya";
+                image.src = "assets/jamila1.jpeg";
+                title.textContent = "The Jamila";
+                desc.textContent = "Signature luxury silk abaya featuring timeless tailoring and flowing lines.";
                 price.textContent = "£280";
-                abayaCard.style.borderColor = "rgba(168, 213, 186, 0.4)";
-                glow.style.background = "radial-gradient(circle, rgba(168,213,186,0.15) 0%, transparent 70%)";
+                pCard.style.borderColor = "rgba(168, 213, 186, 0.3)";
             } else if (collection === 'zahra') {
-                title.textContent = "The Zahra Abaya";
+                image.src = "assets/zahra1.jpeg";
+                title.textContent = "The Zahra";
+                desc.textContent = "Structured earth olive abaya crafted from premium crepe for an elegant silhouette.";
                 price.textContent = "£320";
-                abayaCard.style.borderColor = "rgba(201, 168, 76, 0.4)";
-                glow.style.background = "radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%)";
+                pCard.style.borderColor = "rgba(201, 168, 76, 0.3)";
             } else if (collection === 'yasmine') {
-                title.textContent = "The Yasmine Abaya";
+                image.src = "assets/yasmine1.jpeg";
+                title.textContent = "The Yasmine";
+                desc.textContent = "Editorial soft cream abaya in lightweight linen ideal for seasonal transitions.";
                 price.textContent = "£340";
-                abayaCard.style.borderColor = "rgba(229, 229, 229, 0.4)";
-                glow.style.background = "radial-gradient(circle, rgba(229,229,229,0.15) 0%, transparent 70%)";
+                pCard.style.borderColor = "rgba(229, 229, 229, 0.3)";
             }
 
-            // Animate card swap
-            abayaCard.style.animation = 'none';
-            abayaCard.offsetHeight; // trigger reflow
-            abayaCard.style.animation = 'cardPulse 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+            // Animate card swap pulse
+            pCard.style.animation = 'cardPulse 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
         }
     </script>
 </body>
