@@ -108,7 +108,7 @@
                         </div>
                     </div>
 
-                    <div class="preview-card-wrapper" onclick="window.open('https://f47han.github.io/Zenith-Finance/', '_blank')">
+                    <div class="preview-card-wrapper" onclick="window.open('https://f47han.github.io/Zenith-Finance/crypto.html', '_blank')">
                         <div class="browser-header">
                             <span class="dot red"></span>
                             <span class="dot yellow"></span>
@@ -260,7 +260,7 @@
                                     <span><i class="fas fa-filter"></i> Case Filter</span>
                                 </div>
                                 <div class="card-actions">
-                                    <a href="https://f47han.github.io/Aegis-Legal/" target="_blank" class="card-btn cta"><i class="fas fa-external-link-alt"></i> View Website</a>
+                                    <a href="https://f47han.github.io/Aegis-Legal/lawyer.html" target="_blank" class="card-btn cta"><i class="fas fa-external-link-alt"></i> View Website</a>
                                     <a href="https://github.com/F47han/Aegis-Legal" target="_blank" class="card-btn"><i class="fab fa-github"></i> Source</a>
                                 </div>
                             </div>
@@ -277,7 +277,7 @@
                                     <span><i class="fas fa-chart-line"></i> Yield Calculator</span>
                                 </div>
                                 <div class="card-actions">
-                                    <a href="https://f47han.github.io/Zenith-Finance/" target="_blank" class="card-btn cta"><i class="fas fa-external-link-alt"></i> View Website</a>
+                                    <a href="https://f47han.github.io/Zenith-Finance/crypto.html" target="_blank" class="card-btn cta"><i class="fas fa-external-link-alt"></i> View Website</a>
                                     <a href="https://github.com/F47han/Zenith-Finance" target="_blank" class="card-btn"><i class="fab fa-github"></i> Source</a>
                                 </div>
                             </div>
@@ -294,7 +294,7 @@
                                     <span><i class="fas fa-percentage"></i> Mortgage Est.</span>
                                 </div>
                                 <div class="card-actions">
-                                    <a href="https://f47han.github.io/Aether-Estates/" target="_blank" class="card-btn cta"><i class="fas fa-external-link-alt"></i> View Website</a>
+                                    <a href="https://f47han.github.io/Aether-Estates/realestate.html" target="_blank" class="card-btn cta"><i class="fas fa-external-link-alt"></i> View Website</a>
                                     <a href="https://github.com/F47han/Aether-Estates" target="_blank" class="card-btn"><i class="fab fa-github"></i> Source</a>
                                 </div>
                             </div>
@@ -522,11 +522,12 @@
             viewport.scrollLeft += direction * (cardWidth + gap);
         }
 
-        // Keep page indicators synchronized with swipe or mouse drag
+        // Keep page indicators synchronized with swipe or mouse drag, and support desktop mouse-drag-to-scroll
         document.addEventListener('DOMContentLoaded', () => {
             const viewport = document.querySelector('.carousel-viewport');
             if (!viewport) return;
             
+            // 1. Scroll Indicator Sync
             viewport.addEventListener('scroll', () => {
                 const card = document.querySelector('.showcase-card');
                 if (!card) return;
@@ -538,6 +539,35 @@
                 const activeIndex = Math.max(0, Math.min(totalCards - 1, index));
                 
                 document.getElementById('carousel-count').textContent = `${activeIndex + 1} / ${totalCards}`;
+            });
+
+            // 2. Desktop Mouse Click-and-Drag Scrolling
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            viewport.addEventListener('mousedown', (e) => {
+                isDown = true;
+                viewport.classList.add('dragging');
+                startX = e.pageX - viewport.offsetLeft;
+                scrollLeft = viewport.scrollLeft;
+            });
+
+            const endDrag = () => {
+                if (!isDown) return;
+                isDown = false;
+                viewport.classList.remove('dragging');
+            };
+
+            viewport.addEventListener('mouseleave', endDrag);
+            viewport.addEventListener('mouseup', endDrag);
+
+            viewport.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - viewport.offsetLeft;
+                const walk = (x - startX) * 1.5; // Scroll speed modifier
+                viewport.scrollLeft = scrollLeft - walk;
             });
         });
 

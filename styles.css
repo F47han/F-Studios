@@ -374,10 +374,22 @@ header {
     scrollbar-width: none; /* Firefox */
     padding-bottom: 20px; /* spacing offset */
     margin-bottom: -20px;
+    cursor: grab;
 }
 
 .carousel-viewport::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
+}
+
+.carousel-viewport.dragging {
+    scroll-behavior: auto;
+    cursor: grabbing;
+    scroll-snap-type: none; /* disable snapping temporarily during drag */
+    user-select: none;
+}
+
+.carousel-viewport.dragging .showcase-card {
+    pointer-events: none;
 }
 
 .carousel-track {
