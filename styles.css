@@ -190,19 +190,17 @@ header {
 
 .deck-panel.active {
     display: block;
-    animation: panelEnter 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: panelEnter 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 @keyframes panelEnter {
     0% {
         opacity: 0;
-        transform: translateY(24px) scale(0.985);
-        filter: blur(8px);
+        transform: translateY(10px);
     }
     100% {
         opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0);
+        transform: translateY(0);
     }
 }
 
@@ -497,20 +495,20 @@ header {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    gap: 12px;
+    gap: 10px;
     border-top: 1px solid var(--platinum-border);
-    padding-top: 20px;
+    padding-top: 14px;
 }
 
 .card-btn {
     text-decoration: none;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--platinum-dim);
     transition: var(--transition-quick);
-    padding: 10px 16px;
+    padding: 8px 12px;
     border-radius: var(--radius-md);
     border: 1px solid var(--platinum-border);
     flex: 1;
@@ -773,11 +771,21 @@ header {
     .showcase-card {
         min-width: 100%;
         width: 100%;
-        padding: 30px;
+        padding: 24px;
     }
 
     .showcase-card h3 {
         font-size: 1.8rem;
+    }
+
+    .card-actions {
+        padding-top: 12px;
+        gap: 8px;
+    }
+
+    .card-btn {
+        font-size: 9.5px;
+        padding: 7px 10px;
     }
 
     .calculator-deck {
