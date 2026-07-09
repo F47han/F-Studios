@@ -356,9 +356,9 @@
                         <div class="form-group">
                             <label for="project-tier">Investment Tier</label>
                             <select id="project-tier" class="form-control" onchange="calculateBrief()">
-                                <option value="tier1">Tier 01: Bespoke MVP Portfolio</option>
-                                <option value="tier2" selected>Tier 02: Flagship Digital Asset</option>
-                                <option value="tier3">Tier 03: Retainer & Evolution</option>
+                                <option value="tier1">Tier 01: Single-Page Landing — £400</option>
+                                <option value="tier2" selected>Tier 02: Multi-Page Showcase — £400</option>
+                                <option value="tier3">Tier 03: Custom E-Commerce — £400</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -402,9 +402,9 @@
                         <div class="form-group">
                             <label for="lead-tier">Calculated Tier Summary</label>
                             <select id="lead-tier" class="form-control" required>
-                                <option value="Tier 01: Bespoke MVP">Tier 01: Bespoke MVP Portfolio</option>
-                                <option value="Tier 02: Flagship Digital Asset" selected>Tier 02: Flagship Digital Asset</option>
-                                <option value="Tier 03: Retainer & Digital Evolution">Tier 03: Retainer & Digital Evolution</option>
+                                <option value="Tier 01: Single-Page Landing (£400)">Tier 01: Single-Page Landing — £400</option>
+                                <option value="Tier 02: Multi-Page Showcase (£400)" selected>Tier 02: Multi-Page Showcase — £400</option>
+                                <option value="Tier 03: Custom E-Commerce (£400)">Tier 03: Custom E-Commerce — £400</option>
                             </select>
                         </div>
                         
@@ -579,26 +579,26 @@
             
             document.getElementById('complexity-label').textContent = `${complexityVal}% complexity`;
 
-            let baseCost = 1600;
-            let multiplier = complexityVal / 50;
-            let timeWeeksMin = 3;
-            let timeWeeksMax = 5;
+            let timeWeeksMin = 2;
+            let timeWeeksMax = 3;
 
             if (tierSelect.value === 'tier1') {
-                baseCost = 650;
                 timeWeeksMin = 1;
                 timeWeeksMax = 2;
             } else if (tierSelect.value === 'tier2') {
-                baseCost = 1600;
-                timeWeeksMin = 3;
-                timeWeeksMax = 5;
+                timeWeeksMin = 2;
+                timeWeeksMax = 3;
             } else if (tierSelect.value === 'tier3') {
-                baseCost = 2800;
-                timeWeeksMin = 6;
-                timeWeeksMax = 8;
+                timeWeeksMin = 3;
+                timeWeeksMax = 4;
             }
 
-            const calculatedCost = Math.round(baseCost * multiplier);
+            // Adjust timeline max slightly for high complexity
+            if (complexityVal > 70) {
+                timeWeeksMax += 1;
+            }
+
+            const calculatedCost = 400; // Flat rate for all websites
             
             document.getElementById('brief-funding').textContent = '£' + calculatedCost.toLocaleString();
             document.getElementById('brief-timeline').textContent = `Timeline: ${timeWeeksMin}-${timeWeeksMax} Weeks`;
@@ -606,11 +606,11 @@
             // Sync values with lead form
             const leadTierSelect = document.getElementById('lead-tier');
             if (tierSelect.value === 'tier1') {
-                leadTierSelect.value = 'Tier 01: Bespoke MVP';
+                leadTierSelect.value = 'Tier 01: Single-Page Landing (£400)';
             } else if (tierSelect.value === 'tier2') {
-                leadTierSelect.value = 'Tier 02: Flagship Digital Asset';
+                leadTierSelect.value = 'Tier 02: Multi-Page Showcase (£400)';
             } else if (tierSelect.value === 'tier3') {
-                leadTierSelect.value = 'Tier 03: Retainer & Digital Evolution';
+                leadTierSelect.value = 'Tier 03: Custom E-Commerce (£400)';
             }
         }
 
