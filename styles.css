@@ -185,15 +185,25 @@ header {
 .deck-panel {
     display: none;
     opacity: 0;
-    transform: translateY(12px);
-    transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     padding: 60px 0 100px;
 }
 
 .deck-panel.active {
     display: block;
-    opacity: 1;
-    transform: translateY(0);
+    animation: panelEnter 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes panelEnter {
+    0% {
+        opacity: 0;
+        transform: translateY(24px) scale(0.985);
+        filter: blur(8px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
 }
 
 /* Section Compact Headers */
@@ -330,13 +340,17 @@ header {
     color: var(--platinum-border);
 }
 
-/* PANEL 2: CURATED CAROUSEL (Horizontal Carousel Grid) */
 .carousel-nav {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     gap: 20px;
     margin-bottom: 24px;
+}
+
+.carousel-nav-buttons {
+    display: flex;
+    gap: 8px;
 }
 
 .carousel-btn {
@@ -401,8 +415,8 @@ header {
 /* Liquid Glass Cards */
 .showcase-card {
     scroll-snap-align: start;
-    min-width: calc((100% - 60px) / 3);
-    width: calc((100% - 60px) / 3);
+    min-width: calc((100% - 80px) / 3.5);
+    width: calc((100% - 80px) / 3.5);
     background: var(--bg-card);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -481,6 +495,8 @@ header {
 
 .card-actions {
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     gap: 12px;
     border-top: 1px solid var(--platinum-border);
     padding-top: 20px;
@@ -665,8 +681,8 @@ header {
 /* Responsive Overrides */
 @media (max-width: 1024px) {
     .showcase-card {
-        min-width: calc((100% - 30px) / 2);
-        width: calc((100% - 30px) / 2);
+        min-width: calc((100% - 40px) / 2.3);
+        width: calc((100% - 40px) / 2.3);
     }
 }
 

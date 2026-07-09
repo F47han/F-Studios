@@ -138,9 +138,11 @@
 
                 <!-- Carousel Controls (UX Psychology: Chamberlain's Law of Ease) -->
                 <div class="carousel-nav">
-                    <button class="carousel-btn prev" onclick="moveCarousel(-1)"><i class="fas fa-chevron-left"></i></button>
+                    <div class="carousel-nav-buttons">
+                        <button class="carousel-btn prev" onclick="moveCarousel(-1)"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-btn next" onclick="moveCarousel(1)"><i class="fas fa-chevron-right"></i></button>
+                    </div>
                     <span class="carousel-indicator" id="carousel-count">1 / 9</span>
-                    <button class="carousel-btn next" onclick="moveCarousel(1)"><i class="fas fa-chevron-right"></i></button>
                 </div>
 
                 <!-- Carousel Track -->
