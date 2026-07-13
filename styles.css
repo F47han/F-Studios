@@ -400,9 +400,6 @@ header {
     user-select: none;
 }
 
-.carousel-viewport.dragging .showcase-card {
-    pointer-events: none;
-}
 
 .carousel-track {
     display: flex;

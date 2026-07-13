@@ -543,12 +543,13 @@
 
             // 2. Desktop Mouse Click-and-Drag Scrolling
             let isDown = false;
+            let hasDragged = false;
             let startX;
             let scrollLeft;
 
             viewport.addEventListener('mousedown', (e) => {
                 isDown = true;
-                viewport.classList.add('dragging');
+                hasDragged = false;
                 startX = e.pageX - viewport.offsetLeft;
                 scrollLeft = viewport.scrollLeft;
             });
@@ -564,11 +565,26 @@
 
             viewport.addEventListener('mousemove', (e) => {
                 if (!isDown) return;
-                e.preventDefault();
                 const x = e.pageX - viewport.offsetLeft;
                 const walk = (x - startX) * 1.5; // Scroll speed modifier
-                viewport.scrollLeft = scrollLeft - walk;
+                if (Math.abs(walk) > 5) {
+                    if (!hasDragged) {
+                        hasDragged = true;
+                        viewport.classList.add('dragging');
+                    }
+                    e.preventDefault();
+                    viewport.scrollLeft = scrollLeft - walk;
+                }
             });
+
+            // Capturing click listener to prevent accidental link activation during drag
+            viewport.addEventListener('click', (e) => {
+                if (hasDragged) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    hasDragged = false;
+                }
+            }, true);
         });
 
         // Calculator Logic
